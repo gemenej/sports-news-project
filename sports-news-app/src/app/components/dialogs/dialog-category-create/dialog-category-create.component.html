@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>{{ "Create a new category" | translate }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <p>
+      <mat-form-field appearance="outline" class="small static-width">
+        <mat-label>{{ "Name" | translate }}:</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          (blur)="updateNameErrorMessage()"
+        />
+        @if (name.value !== '') {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="name.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        } @if (name.invalid) {
+        <mat-error>{{ errorNameMessage | translate }}</mat-error>
+        }
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="small static-width">
+        <mat-label>{{ "Slug" | translate }}:</mat-label>
+        <input
+          matInput
+          formControlName="slug"
+          (blur)="updateSlugErrorMessage()"
+        />
+        @if (slug.value !== '') {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="slug.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        } @if (slug.invalid) {
+        <mat-error>{{ errorSlugMessage | translate }}</mat-error>
+        }
+      </mat-form-field>
+    </p>
+  </form>
+
+  <mat-dialog-actions>
+    <button mat-button color="warn" (click)="onNoClick()">
+      {{ "Cancel" | translate }}
+    </button>
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      (click)="onSubmit()"
+      cdkFocusInitial
+    >
+      {{ "Create" | translate }}
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>

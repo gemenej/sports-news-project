@@ -1,0 +1,177 @@
+<h2 mat-dialog-title>{{ "Create a new source" | translate }}</h2>
+<mat-dialog-content>
+  <form
+    [formGroup]="sourceForm"
+    class="columns-centered"
+    (ngSubmit)="onSubmit()"
+  >
+    <p></p>
+    <div>
+      <mat-form-field appearance="outline" class="small static-width">
+        <mat-label>{{ "Name" | translate }}:</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          (blur)="updateNameErrorMessage()"
+        />
+        @if (name.value !== '') {
+        <button
+          matSuffix
+          mat-icon-button
+          class="input-close-btn"
+          aria-label="Clear"
+          (click)="name.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        } @if (name.invalid) {
+        <mat-error>{{ errorNameMessage | translate }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="small static-width">
+        <mat-label>{{ "Slug" | translate }}:</mat-label>
+        <input
+          matInput
+          formControlName="slug"
+          (blur)="updateSlugErrorMessage()"
+        />
+        @if (slug.value !== '') {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="slug.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        } @if (slug.invalid) {
+        <mat-error>{{ errorSlugMessage | translate }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="small static-full-width">
+        <mat-label>URL:</mat-label>
+        <input
+          matInput
+          formControlName="url"
+          (blur)="updateUrlErrorMessage()"
+        />
+        @if (url.value !== '') {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="url.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        } @if (url.invalid) {
+        <mat-error>{{ errorUrlMessage | translate }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="small static-width">
+        <mat-label>{{ "Category" | translate }}:</mat-label>
+        <mat-select formControlName="category" required (blur)="updateCategoryErrorMessage()">
+          @if(categories$ | async; as categories) { @for(category of categories;
+          track $index) {
+          <mat-option value="{{ category.slug }}">
+            {{ category.name }}
+          </mat-option>
+          } } @else {
+          <mat-option value="null">
+            {{ "No categories" | translate }}
+          </mat-option>
+          }
+        </mat-select>
+        @if (category.invalid) {
+        <mat-error>{{ errorCategoryMessage | translate }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="small static-width">
+        <mat-label>{{ "Wrapper" | translate }}:</mat-label>
+        <input matInput formControlName="wrapper" />
+        @if (wrapper.value !== '') {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="wrapper.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+    </div>
+
+    <ng-container [formGroup]="selectorGroup">
+      <div>
+        <mat-form-field appearance="outline" class="small static-width">
+          <mat-label>{{ "Selector" | translate }}:</mat-label>
+          <input matInput formControlName="selector" />
+          @if (selector.value !== '') {
+          <button
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="selector.setValue('')"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="small static-width">
+          <mat-label>{{ "Attribute" | translate }}:</mat-label>
+          <input matInput formControlName="attribute" />
+          @if (attribute.value !== '') {
+          <button
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="attribute.setValue('')"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+          }
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="small static-width">
+          <mat-label>{{ "Value" | translate }}:</mat-label>
+          <input matInput formControlName="value" />
+          @if (value.value !== '') {
+          <button
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="value.setValue('')"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+          }
+        </mat-form-field>
+      </div>
+    </ng-container>
+  </form>
+
+  <mat-dialog-actions>
+    <button mat-button color="warn" (click)="onNoClick()">
+      {{ "Cancel" | translate }}
+    </button>
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      (click)="onSubmit()"
+      cdkFocusInitial
+      [disabled]="sourceForm.invalid"
+    >
+      {{ "Create" | translate }}
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>

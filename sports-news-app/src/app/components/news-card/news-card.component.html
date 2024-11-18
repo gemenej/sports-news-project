@@ -1,0 +1,35 @@
+<mat-card class="news-card">
+  @if (article.imageUrl) {
+    <img mat-card-image [src]="article.imageUrl" [alt]="article.title">
+  } @else {
+    <img mat-card-image [src]="'assets/images/placeholder.webp'" [alt]="article.title">
+  }
+
+  <mat-card-header>
+    <mat-card-title>
+      <a [routerLink]="['/news', article._id]">{{ article.title }}</a>
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ article.source }} | {{ article.pubDate | date: "dd.MM.yyyy HH:mm" }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{ article.description }}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <!-- <a mat-button [href]="article.link" target="_blank">READ MORE</a> -->
+    <a mat-button [routerLink]="['/news', article._id]">{{ "READ MORE" | translate }}</a>
+    <mat-chip-set>
+      @for(category of article.formattedCategories; track $index) {
+        <mat-chip>
+          <a [routerLink]="['/categories', category.slug]">
+            {{ category.name }}
+          </a>
+        </mat-chip>
+      }
+      <!-- <mat-chip>{{ article.category }}</mat-chip> -->
+    </mat-chip-set>
+  </mat-card-actions>
+</mat-card>

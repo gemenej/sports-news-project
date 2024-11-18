@@ -1,0 +1,69 @@
+<h2 mat-dialog-title>{{ "Update" | translate }} {{ data.name }}</h2>
+<mat-dialog-content>
+  <p></p>
+  <div>
+    <mat-form-field appearance="outline" class="small static-width">
+      <mat-label>{{ "Name" | translate }}:</mat-label>
+      <input matInput [(ngModel)]="data.name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="small static-width">
+      <mat-label>Slug:</mat-label>
+      <input matInput [(ngModel)]="data.slug" />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline" class="small static-full-width">
+      <mat-label>Url:</mat-label>
+      <input matInput [(ngModel)]="data.url" />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline" class="small static-width">
+      <mat-label>{{ "Categories" | translate }}:</mat-label>
+      <mat-select [(ngModel)]="data.category">
+        @if(categories$ | async; as categories) {
+          @for(category of categories; track $index) {
+            <mat-option value="{{ category.slug }}">
+              {{ category.name }}
+            </mat-option>
+          }
+        } @else {
+          <mat-option value="null">
+            {{ "No categories" | translate }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="small static-width">
+      <mat-label>{{ "Wrapper" | translate }}:</mat-label>
+      <input matInput [(ngModel)]="data.wrapper" />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline" class="small static-width">
+      <mat-label>{{ "Selector" | translate }}:</mat-label>
+      <input matInput [(ngModel)]="data.selector.selector" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="small static-width">
+      <mat-label>{{ "Attribute" | translate }}:</mat-label>
+      <input matInput [(ngModel)]="data.selector.attribute" />
+    </mat-form-field>
+  </div>
+
+  <mat-dialog-actions>
+    <button mat-button color="warn" (click)="onNoClick()">{{ "Cancel" | translate }}</button>
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      (click)="submit()"
+      cdkFocusInitial
+    >
+      {{ "Update" | translate }}
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>

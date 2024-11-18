@@ -1,0 +1,21 @@
+
+<div class="spinner-area" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+<h2>{{ title ? title : typeValue }}</h2>
+@if ((articles$ | async) && articles$.value.length > 0) {
+  <div class="news-list">
+    <ng-container *ngIf="articles$ | async as articles">
+      <app-news-card
+        *ngFor="let article of articles"
+        [article]="article"
+      ></app-news-card>
+    </ng-container>
+  </div>
+  <mat-paginator *ngIf="!loading" [length]="totalItems" [pageSize]="pageSize" [pageIndex]="currentPage" (page)="pageChanged($event)"></mat-paginator>
+}
+@else {
+  <div class="no-articles">
+    <p [style.padding.px]="20">{{ "No articles found" | translate }}</p>
+  </div>
+}

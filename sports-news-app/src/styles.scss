@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --mat-dialog-actions-alignment: flex-end;
+}
+
+.backdropBackground {
+  background: rgba(0, 0, 0, .32);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.columns-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+mat-form-field {
+  &.small {
+    --mat-form-field-container-height: 40px;
+    --mat-form-field-container-vertical-padding: 8px;
+  }
+  &.static-width {
+    width: 220px
+  }
+  &.static-full-width {
+    width: 440px
+  }
+}
+.sidebar-nav-list {
+  a {
+    &.active {
+      background-color: #e0e0e0;
+      color: white;
+      border-radius: 0;
+    }
+  }
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+}
+

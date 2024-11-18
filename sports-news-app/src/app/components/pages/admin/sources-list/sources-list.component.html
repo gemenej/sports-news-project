@@ -1,0 +1,116 @@
+<section class="sources-list">
+  <mat-grid-list cols="6" rowHeight="100px">
+    <mat-grid-tile [colspan]="'3'" [rowspan]="'1'">
+      <h1 class="source-header">{{ "Sources" | translate }}</h1>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="'1'" [rowspan]="'1'" class="create-btn">
+      <button
+        mat-grid-tile
+        colspan="1"
+        rowspan="1"
+        mat-raised-button
+        color="primary"
+        class="create-btn"
+        (click)="openCreateDialog()"
+        matTooltip="{{ 'Create a new source' | translate }}"
+      >
+        <mat-icon>add</mat-icon> {{ "Create" | translate }}
+      </button>
+    </mat-grid-tile>
+    <mat-grid-tile
+      *ngIf="sources$ | async as sources"
+      [colspan]="'1'"
+      [rowspan]="'1'"
+      class="create-btn"
+    >
+      <button
+        mat-grid-tile
+        colspan="1"
+        rowspan="1"
+        mat-raised-button
+        color="accent"
+        class="create-btn"
+        (click)="startParsing()"
+        [disabled]="(sources.length === 0) || ((settings$ | async)?.status === true)"
+        matTooltip="{{ 'Start Parsing' | translate }}"
+      >
+        <mat-icon>rocket_launch</mat-icon> {{ "Start Parsing" | translate }}
+      </button>
+    </mat-grid-tile>
+
+    <mat-grid-tile
+      *ngIf="sources$ | async as sources"
+      [colspan]="'1'"
+      [rowspan]="'1'"
+      class="create-btn"
+    >
+      <button
+        mat-grid-tile
+        colspan="1"
+        rowspan="1"
+        mat-raised-button
+        color="warn"
+        class="create-btn"
+        (click)="stopParsing()"
+        [disabled]="(sources.length === 0) || ((settings$ | async)?.status === false)"
+        matTooltip="{{ 'Stop Parsing' | translate }}"
+      >
+        <mat-icon>stop_circle</mat-icon> {{ "Stop Parsing" | translate }}
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-grid-list cols="12" rowHeight="50px">
+    <mat-grid-tile [colspan]="'3'" [rowspan]="'1'">
+      <strong class="mat-grid-tile-strong">{{ "Name" | translate }}</strong>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="'3'" [rowspan]="'1'">
+      <strong class="mat-grid-tile-strong">{{ "Slug" | translate }}</strong>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="'3'" [rowspan]="'1'">
+      <strong class="mat-grid-tile-strong">{{ "Category" | translate }}</strong>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="'3'" [rowspan]="'1'">
+      <strong class="mat-grid-tile-strong"></strong>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-grid-list
+    cols="12"
+    rowHeight="50px"
+    *ngFor="let source of sources$ | async"
+    [style.textAlign]="'center'"
+  >
+    <mat-grid-tile [colspan]="'3'" [rowspan]="'1'">
+      <span class="mat-grid-tile-span">{{ source.name }}</span>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="'3'" [rowspan]="'1'">
+      <span class="mat-grid-tile-span">{{ source.slug }}</span>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="'3'" [rowspan]="'1'">
+      <span class="mat-grid-tile-span">{{ source.category }}</span>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="'3'" [rowspan]="'1'">
+      <div class="mat-grid-tile-div">
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Edit source"
+          matTooltip="{{ 'Edit source' | translate }} {{ source.name }}"
+          (click)="openUpdateDialog(source)"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Delete source"
+          matTooltip="{{ 'Delete source' | translate }} {{ source.name }}"
+          (click)="openDeleteDialog(source)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>

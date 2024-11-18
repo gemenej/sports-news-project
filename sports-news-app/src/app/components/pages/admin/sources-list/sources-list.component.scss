@@ -1,0 +1,22 @@
+:host {
+  .sources-list {
+    .source-header {
+      text-align: left;
+      width: 100%;
+    }
+    .create-btn {
+      text-align: right;
+    }
+    .example-spacer {
+      flex: 1 1 auto;
+    }
+    .mat-grid-tile {
+      &-strong,
+      &-span,
+      &-div {
+        width: 100%;
+        text-align: left;
+      }
+    }
+  }
+}

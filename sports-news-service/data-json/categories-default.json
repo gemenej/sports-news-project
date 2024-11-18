@@ -1,0 +1,263 @@
+{
+  "categories": [
+    {
+      "_id": "6737c4fc6fbd9bb208650167",
+      "name": "Новини | Спорт",
+      "slug": "news_sport",
+      "__v": 0
+    },
+    {
+      "_id": "6737c4fc6fbd9bb208650169",
+      "name": "Новини",
+      "slug": "gen_news",
+      "__v": 0
+    },
+    {
+      "_id": "6737c4fd6fbd9bb208650174",
+      "name": "Життя",
+      "slug": "life",
+      "__v": 0
+    },
+    {
+      "_id": "6737c4fd6fbd9bb208650192",
+      "name": "Футбол",
+      "slug": "football",
+      "__v": 0
+    },
+    {
+      "_id": "6737c4fe6fbd9bb208650198",
+      "name": "Теніс",
+      "slug": "tennіs",
+      "__v": 0
+    },
+    {
+      "_id": "6737c4fe6fbd9bb2086501aa",
+      "name": "ММА",
+      "slug": "mma",
+      "__v": 0
+    },
+    {
+      "_id": "6737c4fe6fbd9bb2086501ae",
+      "name": "Кіберспорт",
+      "slug": "cіbersport",
+      "__v": 0
+    },
+    {
+      "_id": "6737f57ec755865adfb39aaa",
+      "name": "Баскетбол",
+      "slug": "basketball",
+      "__v": 0
+    },
+    {
+      "_id": "6737f57fc755865adfb39ad2",
+      "name": "Бокс",
+      "slug": "box",
+      "__v": 0
+    },
+    {
+      "_id": "6737f57fc755865adfb39ad7",
+      "name": "Біатлон",
+      "slug": "bіatlon",
+      "__v": 0
+    },
+    {
+      "_id": "6737fbfff0a046bfcad1b0c7",
+      "name": "Інші новини",
+      "slug": "another_news",
+      "__v": 0
+    },
+    {
+      "_id": "6737fbfff0a046bfcad1b0cc",
+      "name": "Ліга націй",
+      "slug": "national_lіgue",
+      "__v": 0
+    },
+    {
+      "_id": "6737fbfff0a046bfcad1b0d1",
+      "name": "Молодіжні турніри",
+      "slug": "younger",
+      "__v": 0
+    },
+    {
+      "_id": "6737fbfff0a046bfcad1b0dc",
+      "name": "ATP",
+      "slug": "atp",
+      "__v": 0
+    },
+    {
+      "_id": "6737fbfff0a046bfcad1b0e1",
+      "name": "Інші види",
+      "slug": "another",
+      "__v": 0
+    },
+    {
+      "_id": "6737fbfff0a046bfcad1b0e3",
+      "name": "Покер",
+      "slug": "poker",
+      "__v": 0
+    },
+    {
+      "_id": "6737fbfff0a046bfcad1b0eb",
+      "name": "Професійний бокс",
+      "slug": "prof_box",
+      "__v": 0
+    },
+    {
+      "_id": "6737fbfff0a046bfcad1b108",
+      "name": "Волейбол",
+      "slug": "voleiball",
+      "__v": 0
+    },
+    {
+      "_id": "6737fbfff0a046bfcad1b10a",
+      "name": "Україна",
+      "slug": "ukraine",
+      "__v": 0
+    },
+    {
+      "_id": "6738cd169bb7d67be34a14f7",
+      "name": "Футзал",
+      "slug": "futzal",
+      "__v": 0
+    },
+    {
+      "_id": "6738cd1a9bb7d67be34a1505",
+      "name": "Олімпіада",
+      "slug": "olіmpіada",
+      "__v": 0
+    },
+    {
+      "_id": "6738cd1a9bb7d67be34a157e",
+      "name": "Україна. Прем'єр Ліга",
+      "slug": "ukraine_prime_ligue",
+      "__v": 0
+    },
+    {
+      "_id": "6738cd1a9bb7d67be34a1589",
+      "name": "Збірна України",
+      "slug": "national_ukraine",
+      "__v": 0
+    },
+    {
+      "_id": "6738cd1a9bb7d67be34a158e",
+      "name": "MMA",
+      "slug": "mma",
+      "__v": 0
+    },
+    {
+      "_id": "6738cd1a9bb7d67be34a1590",
+      "name": "UFC",
+      "slug": "ufc",
+      "__v": 0
+    },
+    {
+      "_id": "6738cd1a9bb7d67be34a159b",
+      "name": "Англія",
+      "slug": "england",
+      "__v": 0
+    },
+    {
+      "_id": "6738cd1a9bb7d67be34a15b8",
+      "name": "ITF",
+      "slug": "itf",
+      "__v": 0
+    },
+    {
+      "_id": "6738d64317cdefed6729311d",
+      "name": "Автоспорт",
+      "slug": "autosport",
+      "__v": 0
+    },
+    {
+      "_id": "6738d64717cdefed672931b6",
+      "name": "Франція",
+      "slug": "frantsіya",
+      "__v": 0
+    },
+    {
+      "_id": "6738d64717cdefed672931ba",
+      "name": "Снукер",
+      "slug": "snuker",
+      "__v": 0
+    },
+    {
+      "_id": "6738d8fd0eda18a0c85f3601",
+      "name": "Італія",
+      "slug": "іtalіya",
+      "__v": 0
+    },
+    {
+      "_id": "6739dc9a184c21a6e69ab4d6",
+      "name": "Гандбол",
+      "slug": "gandbol",
+      "__v": 0
+    },
+    {
+      "_id": "6739dc9a184c21a6e69ab4e0",
+      "name": "Гімнастика",
+      "slug": "gіmnastika",
+      "__v": 0
+    },
+    {
+      "_id": "6739dc9c184c21a6e69ab56d",
+      "name": "Бразилія",
+      "slug": "brazilіya",
+      "__v": 0
+    },
+    {
+      "_id": "6739f535b71951d698ff1c65",
+      "name": "Україна. Перша ліга",
+      "slug": "ukraїna._persha_lіga",
+      "__v": 0
+    },
+    {
+      "_id": "673a18d697d738d72f8200cf",
+      "name": "Спорт",
+      "slug": "sport",
+      "__v": 0
+    },
+    {
+      "_id": "673a18e897d738d72f8201aa",
+      "name": "Португалія",
+      "slug": "portugalіya",
+      "__v": 0
+    },
+    {
+      "_id": "673b0a35593b98df4c404e28",
+      "name": "Хокей",
+      "slug": "khokei",
+      "__v": 0
+    },
+    {
+      "_id": "673b0a47593b98df4c404ea9",
+      "name": "CS2",
+      "slug": "cs2",
+      "__v": 0
+    },
+    {
+      "_id": "673b0a48593b98df4c404eb4",
+      "name": "Іспанія",
+      "slug": "іspanіya",
+      "__v": 0
+    },
+    {
+      "_id": "673b0a49593b98df4c404ed7",
+      "name": "Чемпіонат світу",
+      "slug": "chempіonat_svіtu",
+      "__v": 0
+    },
+    {
+      "_id": "673b1843593b98df4c404f83",
+      "name": "Веслування",
+      "slug": "vesluvannya",
+      "__v": 0
+    },
+    {
+      "_id": "673b1856593b98df4c40501f",
+      "name": "Major League Soccer",
+      "slug": "major_league_soccer",
+      "__v": 0
+    }
+  ],
+  "totalItems": 43
+}

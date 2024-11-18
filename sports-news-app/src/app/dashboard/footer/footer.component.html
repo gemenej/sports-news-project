@@ -1,0 +1,30 @@
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <img src="assets/images/logo.svg" alt="Logo" class="footer-logo">
+      <p class="description">
+        {{ 'Sports News Portal is a news aggregator application that fetches news articles from various sources and displays them in a card-based layout.' | translate }}
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h4>{{ 'Quick Links' | translate }}</h4>
+      <nav>
+        <a routerLink="/">{{ 'Home' | translate }}</a>
+        <a routerLink="/about">{{ 'About' | translate }}</a>
+        <a routerLink="/contact">{{ 'Contacts' | translate }}</a>
+      </nav>
+    </div>
+
+    <div class="footer-section">
+      <h4>{{ 'Contacts' | translate }}</h4>
+      <p>Email: {{email}}</p>
+      <p>{{ "Phone" | translate }}: +1 234 567 890</p>
+      <p>{{ "Address" | translate }}: {{ '123 Main St, City, Country' | translate }}</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2024 {{ 'Sports News Portal.' | translate }} {{'All Rights Reserved.' | translate }}</p>
+  </div>
+</footer>

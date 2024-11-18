@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>{{ 'Update' | translate }} {{ data.name }}</h2>
+<mat-dialog-content>
+  <p>
+    <mat-form-field appearance="outline" class="small static-width">
+      <mat-label>{{ "Name" | translate }}:</mat-label>
+      <input matInput [(ngModel)]="data.name" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline" class="small static-width">
+      <mat-label>{{ "Slug" | translate }}:</mat-label>
+      <input matInput [(ngModel)]="data.slug" />
+    </mat-form-field>
+  </p>
+
+  <mat-dialog-actions>
+    <button mat-button color="warn" (click)="onNoClick()">{{ "Cancel" | translate }}</button>
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      (click)="submit()"
+      cdkFocusInitial
+    >
+      {{ "Update" | translate }}
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>

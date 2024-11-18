@@ -1,0 +1,13 @@
+:host {
+  .mat-mdc-dialog-title {
+    & + .mat-mdc-dialog-content {
+      padding-top: 20px;
+    }
+  }
+  .mat-mdc-dialog-content {
+    .mat-mdc-form-field {
+      min-width: 320px;
+      width: 100%;
+    }
+  }
+}

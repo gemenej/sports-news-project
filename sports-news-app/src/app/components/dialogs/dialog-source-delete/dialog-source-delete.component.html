@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>{{ 'Delete' | translate }} {{ data.name }}</h2>
+<mat-dialog-content>
+  <p>
+    {{ "Are you sure you want to delete this source?" | translate }}
+  </p>
+  <mat-dialog-actions>
+    <button mat-button color="warn" (click)="onNoClick()">{{ "Cancel" | translate }}</button>
+    <button mat-flat-button color="primary" type="submit" (click)="submit()" cdkFocusInitial>{{ "Delete" | translate }}</button>
+  </mat-dialog-actions>
+</mat-dialog-content>

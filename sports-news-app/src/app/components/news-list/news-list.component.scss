@@ -1,0 +1,18 @@
+:host {
+
+  .spinner-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+  h2 {
+    padding: 0 20px;
+  }
+  .news-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+}

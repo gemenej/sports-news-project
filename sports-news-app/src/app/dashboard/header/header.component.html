@@ -1,0 +1,54 @@
+<mat-toolbar color="primary" class="header">
+  <div class="logo-container">
+    <a routerLink="/">
+      <img src="assets/images/logo.svg" alt="Logo" class="logo" />
+      <span class="title">{{ title }}</span>
+    </a>
+  </div>
+
+  <nav class="navigation">
+    <a
+      mat-button
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon>home</mat-icon> {{ 'Home' | translate }}
+    </a>
+    <a mat-button routerLink="/about" routerLinkActive="active">
+      <mat-icon>info</mat-icon> {{ 'About' | translate }}
+    </a>
+    <a mat-button routerLink="/contact" routerLinkActive="active">
+      <mat-icon>contact_support</mat-icon> {{ 'Contacts' | translate }}
+    </a>
+
+    <ng-container *ngIf="isAuthenticated$ | async">
+        <button mat-button [matMenuTriggerFor]="menu" aria-label="User menu">
+          <mat-icon>person</mat-icon> {{ (currentUser$ | async)?.name }}
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item
+            (click)="logout()"
+          >
+          <mat-icon>logout</mat-icon> {{ "Logout" | translate }}
+          </button>
+          <a mat-menu-item [routerLink]="['/admin', 'sources']">
+            <mat-icon>link</mat-icon>
+            <span>{{ "Sources" | translate }}</span>
+          </a>
+          <a mat-menu-item [routerLink]="['/admin', 'categories']">
+            <mat-icon>category</mat-icon>
+            <span>{{ "Categories" | translate }}</span>
+          </a>
+        </mat-menu>
+    </ng-container>
+    <ng-container *ngIf="!(isAuthenticated$ | async)">
+        <a mat-button routerLink="auth/login" routerLinkActive="active">
+          <mat-icon>login</mat-icon> {{ "Login" | translate }}
+        </a>
+        <a mat-button routerLink="auth/signup" routerLinkActive="active">
+          <mat-icon>person_add</mat-icon> {{ "Signup" | translate }}
+        </a>
+    </ng-container>
+  </nav>
+</mat-toolbar>

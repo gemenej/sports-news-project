@@ -1,0 +1,29 @@
+
+
+<mat-card class="news-card">
+  <img mat-card-image [src]="article.imageUrl" [alt]="article.title" *ngIf="article.imageUrl">
+
+  <mat-card-header>
+    <mat-card-title>{{ article.title }}</mat-card-title>
+    <mat-card-subtitle>
+
+      {{ article.source }} | {{ article.pubDate | date: "dd.MM.yyyy HH:mm" }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div [innerHTML]="article.content"></div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <!-- <a mat-button [href]="article.link" target="_blank">READ MORE</a> -->
+    <a mat-button [href]="article.link" target="_blank">{{ article.source}}</a>
+    @for(category of article.formattedCategories; track $index) {
+      <mat-chip>
+        <a [routerLink]="['/categories', category.slug]">
+          {{ category.name }}
+        </a>
+      </mat-chip>
+    }
+  </mat-card-actions>
+</mat-card>

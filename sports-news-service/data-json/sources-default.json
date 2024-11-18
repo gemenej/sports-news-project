@@ -1,0 +1,107 @@
+[
+  {
+    "selector": {
+      "selector": "p",
+      "attribute": "",
+      "value": ""
+    },
+    "_id": "673687740fe5a5a2d7a4244b",
+    "name": "Радіо Свобода",
+    "source": "Радіо Свобода",
+    "url": "https://www.radiosvoboda.org/api/ztpmmyl-vomx-tpekjymv",
+    "slug": "radiosvoboda",
+    "category": "sport",
+    "wrapper": ".wsw",
+    "__v": 0
+  },
+  {
+    "selector": {
+      "selector": "",
+      "attribute": "",
+      "value": ""
+    },
+    "_id": "67369c7480fa16b43954fe26",
+    "name": "РБК-Україна",
+    "source": "РБК-Україна",
+    "url": "https://www.rbc.ua/static/rss/ukrnet.sport.ukr.rss.xml",
+    "slug": "rbc",
+    "category": "sport",
+    "wrapper": "",
+    "__v": 0
+  },
+  {
+    "selector": {
+      "selector": "p",
+      "attribute": "",
+      "value": ""
+    },
+    "_id": "6736a246fa6698cc55ff97ce",
+    "name": "Чемпіон",
+    "source": "Чемпіон",
+    "url": "https://champion.com.ua/ukr/rss/",
+    "slug": "chempion",
+    "category": "sport",
+    "wrapper": ".post_news_text",
+    "__v": 0
+  },
+  {
+    "selector": {
+      "selector": "",
+      "attribute": "",
+      "value": ""
+    },
+    "_id": "6737f5713ae816ff1065ace0",
+    "name": "SPORTNEWS",
+    "source": "SPORTNEWS",
+    "url": "https://sportnews.com.ua/feed",
+    "slug": "sportnews",
+    "category": "sport",
+    "wrapper": "",
+    "__v": 0
+  },
+  {
+    "selector": {
+      "selector": "p",
+      "attribute": "",
+      "value": ""
+    },
+    "_id": "6737fa266fcfdc705603213a",
+    "name": "Xsport",
+    "source": "Xsport",
+    "url": "https://xsport.ua/ua/rss/",
+    "slug": "xsport",
+    "category": "sport",
+    "wrapper": ".detail-news__text-holder",
+    "__v": 0
+  },
+  {
+    "selector": {
+      "selector": "",
+      "attribute": "",
+      "value": ""
+    },
+    "_id": "6737faf75824a601ff5610f8",
+    "name": "Terrikon",
+    "source": "Terrikon",
+    "url": "https://terrikon.com/uk/rss",
+    "slug": "terrikon",
+    "category": "sport",
+    "wrapper": "",
+    "__v": 0
+  },
+  {
+    "selector": {
+      "selector": "p",
+      "attribute": "",
+      "value": ""
+    },
+    "_id": "6737fbec2c5fb01dd10ced23",
+    "name": "Sport.ua",
+    "source": "Sport.ua",
+    "url": "https://sport.ua/uk/rss/all",
+    "slug": "sport_ua",
+    "category": "sport",
+    "wrapper": "#news_text",
+    "__v": 0
+  }
+]
