@@ -27,7 +27,6 @@ export class SourceService {
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {
     this.loadSources();
-    //this.loadSettings();
   }
 
   loadSources(): void {
@@ -132,12 +131,12 @@ export class SourceService {
         this.snackBar.open('Parsing started', 'Close', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
-          duration: 3000,
+          duration: 3000, 
         });
-        // timer(3000).subscribe(() => {
-        //   // redirect to home page after 3 seconds with reloading the page
-        //   window.location.href = '/';
-        // });
+        timer(3000).subscribe(() => {
+          // redirect to home page after 3 seconds with reloading the page
+          window.location.href = '/';
+        });
       },
       error => {
         console.error('Error starting parsing:', error);

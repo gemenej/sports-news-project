@@ -85,10 +85,12 @@ News Aggregator API - це RESTful API, який дозволяє користу
 3. Cтворіть файл `.env` та вкажіть усі необхідні змінні середовища.
    ```bash
     PORT=3000
-    MONGODB_URI=mongodb://localhost:27017/news-aggregator
-    JWT_SECRET=secret
+    MONGODB_URI=mongodb://localhost:27017/sports-news
+    JWT_SECRET=somesupersecretsecret
+    REFRESH_TOKEN=somesupersecretrefresh
+    PERIOD_MIN=60
     ```
-4. Запустіть проект: `npm start`
+4. Запустіть проект: `npm run dev`
 5. Відкрийте Swagger UI: `http://localhost:3000/docs`
 
 ## Документація API:
@@ -115,7 +117,3 @@ mongod --config /etc/mongod.conf
 Compass - графічний інтерфейс для роботи з MongoDB, який можна завантажити з офіційного сайту: https://www.mongodb.com/try/download/compass
 
 Завершити роботу MongoDB Shell за допомогою команди exit
-
-
-### Check MongoDB status
-mongosh

@@ -1,7 +1,10 @@
-import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 import { check, body, validationResult } from "express-validator";
+import User from "../models/User.js";
+
+dotenv.config();
 
 export const login = async (req, res, next) => {
   try {
@@ -34,7 +37,7 @@ export const login = async (req, res, next) => {
         email: user.email,
         userId: user._id.toString(),
       },
-      "somesupersecretsecret",
+      process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
 
@@ -43,7 +46,7 @@ export const login = async (req, res, next) => {
         email: user.email,
         userId: user._id.toString(),
       },
-      "somesupersecretrefresh",
+      process.env.REFRESH_TOKEN,
       { expiresIn: "12h" }
     );
 
@@ -92,7 +95,7 @@ export const signup = async (req, res, next) => {
           email: result.email,
           userId: result._id.toString(),
         },
-        "somesupersecretsecret",
+        process.env.JWT_SECRET,
         { expiresIn: "1h" }
       );
       const refreshToken = jwt.sign(
@@ -100,7 +103,7 @@ export const signup = async (req, res, next) => {
           email: result.email,
           userId: result._id.toString(),
         },
-        "somesupersecretrefresh",
+        process.env.REFRESH_TOKEN,
         { expiresIn: "12h" }
       );
       res.status(201).json({
@@ -136,7 +139,7 @@ export const refresh = async (req, res, next) => {
     }
     let decodedToken;
       
-    decodedToken = jwt.verify(refreshToken, "somesupersecretrefresh");
+    decodedToken = jwt.verify(refreshToken, process.env.REFRESH_TOKEN);
     if (!decodedToken) {
       const error = new Error("Not authenticated.");
       error.statusCode = 401;
@@ -148,7 +151,7 @@ export const refresh = async (req, res, next) => {
         email: user.email,
         userId: user._id.toString(),
       },
-      "somesupersecretsecret",
+      process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
     res.status(200).json({

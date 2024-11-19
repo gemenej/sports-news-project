@@ -1,13 +1,12 @@
-<h1>Signup</h1>
+<h1>{{ 'Signup' | translate }}</h1>
 
 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
   <p>
     <mat-form-field appearance="outline">
-      <mat-label>Name:</mat-label>
+      <mat-label>{{ 'Name' | translate }}:</mat-label>
       <input
         matInput
         type="text"
-        placeholder="name"
         [formControl]="name"
         (blur)="updateNameErrorMessage()"
         autocomplete="one-time-code"
@@ -22,17 +21,16 @@
         <mat-icon>close</mat-icon>
       </button>
       } @if (name.invalid) {
-      <mat-error>{{ errorNameMessage }}</mat-error>
+      <mat-error>{{ errorNameMessage | translate }}</mat-error>
       }
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="outline">
-      <mat-label>Email:</mat-label>
+      <mat-label>{{ 'Email' | translate }}:</mat-label>
       <input
         matInput
         type="email"
-        placeholder="email"
         [formControl]="email"
         (blur)="updateEmailErrorMessage()"
         autocomplete="one-time-code"
@@ -47,13 +45,13 @@
         <mat-icon>close</mat-icon>
       </button>
       } @if (email.invalid) {
-      <mat-error>{{ errorEmailMessage }}</mat-error>
+      <mat-error>{{ errorEmailMessage | translate }}</mat-error>
       }
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="outline">
-      <mat-label>Password:</mat-label>
+      <mat-label>{{ 'Password' | translate }}:</mat-label>
       <input
         matInput
         type="password"
@@ -71,7 +69,7 @@
         <mat-icon>close</mat-icon>
       </button>
       } @if (password.invalid) {
-      <mat-error>{{ errorPasswordMessage }}</mat-error>
+      <mat-error>{{ errorPasswordMessage | translate }}</mat-error>
       }
     </mat-form-field>
   </p>
@@ -81,6 +79,6 @@
     color="primary"
     [disabled]="signupForm.invalid"
   >
-    Signup
+    {{ 'Signup' | translate }}
   </button>
 </form>

@@ -1,8 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/database.js";
-import csrf from "csurf";
-import mongoose, { set } from "mongoose";
 import bodyParser from "body-parser";
 
 import settingsRouter from "./routes/settings.js";
@@ -11,11 +9,8 @@ import sourcesRouter from "./routes/source.js";
 import categoriesRouter from "./routes/category.js";
 import authRouter from "./routes/auth.js";
 
+import { initializeDatabase } from './controllers/source.js';
 import swaggerDocs from "../swagger.js";
-import { fetchAndSaveNews } from "./services/rssParser.js";
-import Settings from "./models/Settings.js";
-import * as logger from "./services/logger.js";
-import { setDefaultSettings } from "./controllers/source.js";
 
 dotenv.config();
 
@@ -53,8 +48,12 @@ app.use((error, req, res, next) => {
 connectDB();
 
 
-app.listen(PORT, () => {
-  setDefaultSettings();
-  console.log(`Server running on port ${PORT}`);
+app.listen(PORT, async () => {
+  try {
+    await initializeDatabase();
+    console.log(`Server running on port ${PORT}`);
+  } catch (error) {
+    console.error(`Error initializing database: ${error.message}`);
+  }
 });
 swaggerDocs(app, PORT);

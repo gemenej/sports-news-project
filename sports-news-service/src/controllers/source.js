@@ -1,7 +1,13 @@
+import bcrypt from "bcryptjs";
+import dotenv from "dotenv";
 import Source from "../models/Source.js";
-import { fetchAndSaveNews } from "../services/rssParser.js";
 import Settings from "../models/Settings.js";
+import User from "../models/User.js";
+import Category from "../models/Category.js";
+import { fetchAndSaveNews } from "../services/rssParser.js";
 import * as logger from "../services/logger.js";
+
+dotenv.config();
 
 export const getSources = async (req, res) => {
   try {
@@ -69,7 +75,7 @@ export const startService = async (req, res) => {
       `Settings of service ${settings.service} has updated to status ${settings.status}`
     );
     // Schedule news fetching (every 1 hour)
-    newsFetchInterval = setInterval(fetchAndSaveNews, 5 * 60 * 1000);
+    newsFetchInterval = setInterval(fetchAndSaveNews, process.env.PERIOD_MIN * 60 * 1000);
     // Initial fetch
     fetchAndSaveNews();
     logger.logInfo("Service started successfully!");
@@ -123,16 +129,61 @@ export const getSettingsByService = async (req, res) => {
 
 export const setDefaultSettings = async (req, res) => {
   try {
+    await initializeDatabase();
+    res
+      .status(200)
+      .json({ message: "Default settings initialized successfully" });
+  } catch (error) {
+    logger.logError(`Error updating settings: ${error}`);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const initializeDatabase = async () => {
+  try {
     const settings = await Settings.findOneAndUpdate(
       { service: "parse" },
-      { status: false },
+      { service: "parse", status: false },
       { upsert: true, new: true }
     );
     logger.logInfo(
       `Settings updated successfully with status: ${settings.status}`
     );
+
+    const hashedPassword = await bcrypt.hash("root", 12);
+    const user = await User.findOneAndUpdate(
+      { email: "admin@localhost.com" },
+      { name: "admin", email: "admin@localhost.com", password: hashedPassword },
+      { upsert: true, new: true }
+    );
+    logger.logInfo(`User updated successfully with email: ${user.email}`);
+
+    const category = await Category.findOneAndUpdate(
+      { slug: "general" },
+      { name: "Спорт", slug: "general" },
+      { upsert: true, new: true }
+    );
+    logger.logInfo(`Category updated successfully with slug: ${category.slug}`);
+
+    const source = await Source.findOneAndUpdate(
+      { slug: "chempion" },
+      {
+        name: "Чемпіон",
+        slug: "chempion",
+        source: "Чемпіон",
+        url: "https://champion.com.ua/ukr/rss/",
+        category: "general",
+        wrapper: ".post_news_text",
+        selector: {
+          selector: "p",
+          attribute: "",
+          value: "",
+        },
+      },
+      { upsert: true, new: true }
+    );
   } catch (error) {
-    logger.logError(`Error updating settings: ${error}`);
-    res.status(500).json({ message: error.message });
+    logger.logError(`Error initializing database: ${error}`);
+    throw error;
   }
 };
