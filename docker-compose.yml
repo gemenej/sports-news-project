@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  backend:
+    build: 
+      context: ./sports-news-service
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/sports-news
+    depends_on:
+      - mongodb
+
+  frontend:
+    build: 
+      context: ./sports-news-app
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=sports-news
+
+volumes:
+  mongodb_data:
