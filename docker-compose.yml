@@ -19,7 +19,7 @@ services:
       - backend
 
   mongodb:
-    image: mongo:latest
+    image: mongo:4.4.6
     ports:
       - "27017:27017"
     volumes:
