@@ -1,4 +1,4 @@
-# Sports News Project
+# Service News Project
 
 ## Установка та залежності
 

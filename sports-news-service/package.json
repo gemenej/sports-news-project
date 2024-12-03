@@ -1,7 +1,7 @@
 {
   "name": "sports-news-service",
   "version": "1.0.0",
-  "description": "Sports news aggregator with RSS parsing",
+  "description": "Service news aggregator with RSS parsing",
   "main": "src/index.js",
   "type": "module",
   "scripts": {

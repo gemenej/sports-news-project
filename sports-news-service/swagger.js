@@ -12,9 +12,9 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Sports News Service API",
+      title: "Service News Service API",
       description:
-        "API endpoints for a Sports News services documented on swagger",
+        "API endpoints for a Service News services documented on swagger",
       version: "1.0.0",
     },
     servers: [

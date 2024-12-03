@@ -20,7 +20,7 @@
   "READ MORE": "ЧИТАТИ ДАЛІ",
   "No articles found": "Новини не знайдено",
   "Sports News Portal is a news aggregator application that fetches news articles from various sources and displays them in a card-based layout.":
-    "Портал спортивних новин - це додаток-агрегатор новин, який отримує новини з різних джерел і відображає їх у форматі карток.",
+    "Портал новин - це додаток-агрегатор новин, який отримує новини з різних джерел і відображає їх у форматі карток.",
   "This is a simple news aggregator application built with Angular and Node.js.": "Це простий додаток-агрегатор новин, побудований з використанням Angular та Node.js.",
   "The application fetches news articles from various sources and displays them in a card-based layout.": "Додаток отримує новини з різних джерел і відображає їх у форматі карток.",
   "The application also allows users to view news articles by category and read the full article on the source website.": "Додаток також дозволяє користувачам переглядати новини за категорією та читати повну статтю на веб-сайті джерела.",
@@ -28,7 +28,7 @@
   "Phone": "Телефон",
   "Address": "Адреса",
   "Email": "Електронна пошта",
-  "Sports News Portal.": "Портал спортивних новин.",
+  "Sports News Portal.": "Портал новин.",
   "All rights reserved.": "Всі права захищені.",
   "Name": "Ім'я",
   "Message": "Повідомлення",

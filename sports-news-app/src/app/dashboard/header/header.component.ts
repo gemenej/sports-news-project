@@ -10,7 +10,7 @@ import { TranslateService } from "@ngx-translate/core";
 export class HeaderComponent implements OnInit {
   isAuthenticated$ = this.authService.isAuthenticated();
   currentUser$ = this.authService.getCurrentUser();
-  title = "Sports News Portal";
+  title = "Service News Portal";
 
   constructor(
     private translate: TranslateService,
